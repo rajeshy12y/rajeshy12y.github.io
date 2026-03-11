@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Yogitha 🌹</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Great+Vibes&family=Tenor+Sans&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose:   #e8295b;
+  --deep:   #8b0030;
+  --gold:   #f5c842;
+  --blush:  #ffb3cb;
+  --cream:  #fff8f0;
+  --ink:    #fff0f5;
+  --shadow: rgba(232,41,91,0.35);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #0a0018;
+  font-family: 'Tenor Sans', sans-serif;
+  cursor: none;
+}
+
+/* ─── CUSTOM CURSOR ─────────────────────────────── */
+#cursor {
+  position: fixed;
+  width: 18px; height: 18px;
+  background: radial-gradient(circle, #ff4d88, #e8295b);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%,-50%);
+  transition: transform 0.08s ease;
+  box-shadow: 0 0 12px #ff4d88;
+  mix-blend-mode: screen;
+}
+
+/* ─── LAYERED BACKGROUND ────────────────────────── */
+#bg {
+  position: fixed; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 30%, rgba(80,0,140,0.55) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 70% at 80% 70%, rgba(50,0,100,0.55) 0%, transparent 70%),
+    radial-gradient(ellipse 100% 100% at 50% 50%, rgba(15,0,35,1) 0%, #0a0018 100%);
+  animation: bgBreath 10s ease-in-out infinite;
+}
+@keyframes bgBreath {
+  0%,100% { opacity:1; }
+  50% { opacity:0.85; }
+}
+
+#aurora {
+  position: fixed; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 120% 40% at -10% 50%, rgba(120,0,200,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 120% 40% at 110% 50%, rgba(80,0,160,0.10) 0%, transparent 60%);
+  animation: auroraShift 18s ease-in-out infinite alternate;
+}
+@keyframes auroraShift {
+  0%   { transform: translateX(0) scaleY(1); }
+  50%  { transform: translateX(5%) scaleY(1.15); }
+  100% { transform: translateX(-5%) scaleY(0.9); }
+}
+
+#star-canvas, #petal-canvas {
+  position: fixed; inset: 0; z-index: 1;
+  pointer-events: none;
+}
+#petal-canvas { z-index: 3; }
+
+.screen {
+  position: relative; z-index: 10;
+  min-height: 100vh;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  text-align: center;
+}
+.screen.active { display: flex; }
+
+/* ─── SCREEN 1 : CAKE ───────────────────────────── */
+#s-cake .subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1rem, 3vw, 1.4rem);
+  color: rgba(255,200,210,0.65);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 0.6em;
+  animation: fadeSlideUp 1.2s ease 0.3s both;
+}
+#s-cake .big-wish {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(3rem, 10vw, 7rem);
+  line-height: 1.1;
+  color: #fff;
+  text-shadow: 0 0 30px var(--rose), 0 0 60px rgba(232,41,91,0.5);
+  animation: fadeSlideUp 1.2s ease 0.6s both;
+  margin-bottom: 0.1em;
+}
+#s-cake .name-glow {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(2.4rem, 8vw, 5.5rem);
+  background: linear-gradient(135deg, var(--gold) 0%, #ffeaa0 40%, var(--gold) 70%, #ffcf50 100%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeSlideUp 1.2s ease 0.9s both, goldShimmer 4s linear 2s infinite;
+  margin-bottom: 2.5rem;
+}
+@keyframes goldShimmer {
+  0%   { background-position: 0% }
+  100% { background-position: 300% }
+}
+@keyframes fadeSlideUp {
+  from { opacity:0; transform: translateY(30px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+.cake-wrap {
+  cursor: none;
+  filter: drop-shadow(0 25px 50px rgba(232,41,91,0.45));
+  transition: filter 0.3s;
+  animation: fadeSlideUp 1.2s ease 1.2s both, cakeFloat 5s ease-in-out 2.4s infinite;
+}
+.cake-wrap:hover {
+  filter: drop-shadow(0 30px 70px rgba(232,41,91,0.7)) drop-shadow(0 0 30px rgba(245,200,66,0.4));
+}
+@keyframes cakeFloat {
+  0%,100% { transform: translateY(0) rotate(-0.5deg); }
+  50% { transform: translateY(-20px) rotate(0.5deg); }
+}
+
+.tap-ring {
+  width: 180px; height: 180px;
+  border: 1.5px solid rgba(232,41,91,0.4);
+  border-radius: 50%;
+  margin: 1.8rem auto 0;
+  position: relative;
+  animation: ringPulse 2.5s ease-in-out infinite;
+  display: flex; align-items: center; justify-content: center;
+}
+.tap-ring::before {
+  content:'';
+  position: absolute; inset: 10px;
+  border: 1px solid rgba(245,200,66,0.25);
+  border-radius: 50%;
+  animation: ringPulse 2.5s ease-in-out 0.4s infinite;
+}
+@keyframes ringPulse {
+  0%,100% { transform: scale(1); opacity:0.6; }
+  50% { transform: scale(1.08); opacity:1; }
+}
+.tap-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: rgba(255,200,210,0.8);
+  font-size: 1.05rem;
+  letter-spacing: 2px;
+  pointer-events: none;
+}
+
+/* ─── MUSIC INDICATOR ───────────────────────────── */
+#music-indicator {
+  position: fixed;
+  top: 18px;
+  right: 20px;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  background: rgba(232,41,91,0.12);
+  border: 1px solid rgba(232,41,91,0.3);
+  border-radius: 100px;
+  padding: 7px 16px 7px 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+#music-indicator:hover { background: rgba(232,41,91,0.22); }
+#music-indicator.visible { display: flex; }
+.music-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 16px;
+}
+.music-bars span {
+  display: block;
+  width: 3px;
+  background: var(--rose);
+  border-radius: 2px;
+  animation: barBounce 0.8s ease-in-out infinite;
+}
+.music-bars span:nth-child(1) { height: 6px;  animation-delay: 0s; }
+.music-bars span:nth-child(2) { height: 12px; animation-delay: 0.15s; }
+.music-bars span:nth-child(3) { height: 8px;  animation-delay: 0.3s; }
+.music-bars span:nth-child(4) { height: 14px; animation-delay: 0.1s; }
+.music-bars span:nth-child(5) { height: 5px;  animation-delay: 0.25s; }
+@keyframes barBounce {
+  0%,100% { transform: scaleY(1); }
+  50%      { transform: scaleY(0.3); }
+}
+#music-indicator.paused .music-bars span { animation-play-state: paused; opacity: 0.4; }
+#music-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.82rem;
+  color: rgba(255,180,200,0.8);
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+/* ─── SCREEN 2 : ROSE ───────────────────────────── */
+#s-rose { background: transparent; }
+#s-rose .rose-msg {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  color: rgba(255,210,220,0.9);
+  max-width: 500px;
+  line-height: 1.8;
+  text-shadow: 0 0 20px rgba(232,41,91,0.4);
+  animation: fadeSlideUp 1s ease both;
+}
+.rose-wrap {
+  cursor: none;
+  animation: roseFloat 4s ease-in-out infinite;
+  filter: drop-shadow(0 20px 50px rgba(200,30,80,0.6));
+  margin: 2.5rem 0;
+}
+.rose-wrap:hover {
+  filter: drop-shadow(0 25px 70px rgba(232,41,91,0.9));
+}
+@keyframes roseFloat {
+  0%,100% { transform: translateY(0) rotate(1deg); }
+  50% { transform: translateY(-15px) rotate(-1deg); }
+}
+.open-btn {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--gold);
+  border: 1px solid rgba(245,200,66,0.35);
+  background: rgba(245,200,66,0.05);
+  padding: 14px 44px;
+  border-radius: 100px;
+  cursor: none;
+  letter-spacing: 2px;
+  transition: all 0.3s;
+  animation: fadeSlideUp 1s ease 0.8s both;
+  text-shadow: 0 0 10px rgba(245,200,66,0.5);
+}
+.open-btn:hover {
+  background: rgba(245,200,66,0.12);
+  border-color: rgba(245,200,66,0.7);
+  box-shadow: 0 0 30px rgba(245,200,66,0.2);
+  transform: translateY(-2px);
+}
+
+/* ─── SCREEN 3 : MESSAGE ────────────────────────── */
+#s-msg {
+  justify-content: flex-start;
+  padding-top: 60px;
+  padding-bottom: 100px;
+}
+.msg-top {
+  margin-bottom: 3rem;
+  animation: fadeSlideUp 1s ease both;
+}
+.msg-top .letter-from {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: rgba(255,180,200,0.6);
+  font-size: 0.95rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.msg-top .letter-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: #fff;
+  text-shadow: 0 0 25px var(--rose);
+}
+
+.letter-paper {
+  max-width: 820px;
+  width: 100%;
+  position: relative;
+  background: rgba(255,255,255,0.028);
+  border-radius: 2px;
+  padding: clamp(28px, 6vw, 64px) clamp(24px, 6vw, 70px);
+  border-left: 2px solid rgba(232,41,91,0.3);
+  box-shadow:
+    0 0 80px rgba(232,41,91,0.07),
+    0 40px 80px rgba(0,0,0,0.4),
+    inset 0 0 40px rgba(255,255,255,0.01);
+}
+.letter-paper::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--rose), var(--gold), var(--rose), transparent);
+  border-radius: 2px 2px 0 0;
+  opacity: 0.5;
+}
+.letter-paper::after {
+  content: '"';
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12rem;
+  color: rgba(232,41,91,0.04);
+  position: absolute;
+  top: -20px; left: 10px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+#word-display {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+  line-height: 2.1;
+  color: rgba(255, 245, 248, 0.92);
+  letter-spacing: 0.2px;
+  word-spacing: 3px;
+  position: relative;
+  z-index: 1;
+}
+
+.word {
+  display: inline;
+  opacity: 0;
+  transition: opacity 0.4s ease, color 0.4s ease;
+  margin-right: 0.3em;
+}
+.word.shown { opacity: 1; }
+.word.w-love { color: #ff6b8a; font-style: italic; }
+.word.w-gold { color: var(--gold); font-style: italic; }
+.word.w-name { color: var(--gold); font-weight: 600; }
+
+.progress-track {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: rgba(255,255,255,0.05);
+  z-index: 50;
+}
+#prog-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--deep), var(--rose), var(--gold));
+  width: 0%;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px var(--rose);
+}
+
+.scroll-hint {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: rgba(255,180,200,0.5);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  z-index: 50;
+  animation: hintFade 3s ease 5s forwards;
+}
+@keyframes hintFade { to { opacity:0; } }
+
+.conf {
+  position: fixed;
+  top: -20px;
+  width: 6px; height: 14px;
+  border-radius: 1px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  animation: confDrop linear infinite;
+}
+@keyframes confDrop {
+  0%   { opacity: 0.8; transform: translateY(0) rotate(0deg) scaleX(1); }
+  50%  { opacity: 0.6; }
+  100% { opacity: 0;   transform: translateY(105vh) rotate(600deg) scaleX(-1); }
+}
+
+@keyframes sparkPop {
+  0%   { opacity:0; transform: scale(0.3) translate(0,0); }
+  40%  { opacity:1; transform: scale(1.3) translate(calc(var(--tx)*0.5), calc(var(--ty)*0.5)); }
+  100% { opacity:0; transform: scale(0)   translate(var(--tx), var(--ty)); }
+}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="bg"></div>
+<div id="aurora"></div>
+<canvas id="star-canvas"></canvas>
+<canvas id="petal-canvas"></canvas>
+
+<!-- ── MUSIC INDICATOR ── -->
+<div id="music-indicator" title="Click to pause / resume">
+  <div class="music-bars">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <span id="music-label">♪ playing</span>
+</div>
+
+<!-- ── HIDDEN AUDIO ── -->
+<audio id="bg-music" loop preload="auto">
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ══════════════════════════════════
+     SCREEN 1  —  CAKE
+════════════════════════════════════ -->
+<div id="s-cake" class="screen active">
+  <div class="subtitle">இனிய பிறந்தநாள் நல்வாழ்த்துக்கள்!</div>
+  <div class="big-wish">யோகிதா அழகர்</div>
+  <div class="name-glow"></div>
+
+  <div class="cake-wrap" id="cake-btn">
+    <svg width="240" height="290" viewBox="0 0 240 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="120" cy="272" rx="95" ry="12" fill="rgba(200,0,60,0.22)"/>
+      <rect x="18" y="164" width="204" height="64" rx="8" fill="url(#grad-b1)"/>
+      <rect x="18" y="164" width="204" height="14" rx="6" fill="url(#grad-b1top)"/>
+      <path d="M28 164 Q44 148 60 164 Q76 148 92 164 Q108 148 124 164 Q140 148 156 164 Q172 148 188 164 Q204 148 214 164" stroke="rgba(255,255,255,0.8)" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <ellipse cx="120" cy="228" rx="102" ry="16" fill="url(#grad-b-bot)"/>
+      <circle cx="50"  cy="196" r="5.5" fill="#ffd700" opacity="0.9"/>
+      <circle cx="80"  cy="196" r="5.5" fill="#ffaac8" opacity="0.9"/>
+      <circle cx="120" cy="196" r="5.5" fill="#ffd700" opacity="0.9"/>
+      <circle cx="160" cy="196" r="5.5" fill="#ffaac8" opacity="0.9"/>
+      <circle cx="190" cy="196" r="5.5" fill="#ffd700" opacity="0.9"/>
+      <text x="98" y="218" font-size="16" fill="rgba(255,220,230,0.7)" font-family="serif">♥ ♥ ♥</text>
+      <rect x="38" y="108" width="164" height="56" rx="7" fill="url(#grad-m1)"/>
+      <rect x="38" y="108" width="164" height="12" rx="5" fill="url(#grad-m1top)"/>
+      <path d="M48 108 Q62 94 76 108 Q90 94 104 108 Q118 94 132 108 Q146 94 160 108 Q174 94 188 108" stroke="rgba(255,255,255,0.75)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <ellipse cx="120" cy="164" rx="82" ry="12" fill="url(#grad-m-bot)"/>
+      <circle cx="72"  cy="136" r="5" fill="#ffe066" opacity="0.9"/>
+      <circle cx="120" cy="136" r="5" fill="#fff"    opacity="0.85"/>
+      <circle cx="168" cy="136" r="5" fill="#ffe066" opacity="0.9"/>
+      <text x="103" y="156" font-size="14" fill="rgba(255,220,230,0.65)" font-family="serif">✿  ✿</text>
+      <rect x="62" y="60" width="116" height="48" rx="6" fill="url(#grad-t1)"/>
+      <rect x="62" y="60" width="116" height="11" rx="5" fill="url(#grad-t1top)"/>
+      <path d="M68 60 Q80 47 92 60 Q104 47 116 60 Q128 47 140 60 Q152 47 164 60 Q170 49 172 60" stroke="rgba(255,255,255,0.7)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <ellipse cx="120" cy="108" rx="58" ry="9" fill="url(#grad-t-bot)"/>
+      <circle cx="90"  cy="84" r="4" fill="#ffd700" opacity="0.9"/>
+      <circle cx="120" cy="84" r="4" fill="#ffb3cb" opacity="0.9"/>
+      <circle cx="150" cy="84" r="4" fill="#ffd700" opacity="0.9"/>
+      <rect x="84" y="28" width="9" height="34" rx="4.5" fill="url(#cand1)"/>
+      <ellipse cx="88.5" cy="28" rx="4.5" ry="6"  fill="#ff7700"/>
+      <ellipse cx="88.5" cy="24" rx="3.5" ry="6"  fill="#ffdd00"/>
+      <ellipse cx="88.5" cy="20" rx="2.5" ry="4"  fill="rgba(255,255,255,0.85)"/>
+      <ellipse cx="88.5" cy="18" rx="8"   ry="8"  fill="#ffcc00" opacity="0.18"/>
+      <rect x="115" y="20" width="10" height="42" rx="5" fill="url(#cand2)"/>
+      <ellipse cx="120" cy="20" rx="5"   ry="7"  fill="#ff4400"/>
+      <ellipse cx="120" cy="15" rx="4"   ry="7"  fill="#ffaa00"/>
+      <ellipse cx="120" cy="10" rx="3"   ry="5"  fill="rgba(255,255,255,0.9)"/>
+      <ellipse cx="120" cy="8"  rx="12"  ry="12" fill="#ffcc00" opacity="0.15"/>
+      <rect x="147" y="28" width="9" height="34" rx="4.5" fill="url(#cand3)"/>
+      <ellipse cx="151.5" cy="28" rx="4.5" ry="6"  fill="#ff6600"/>
+      <ellipse cx="151.5" cy="24" rx="3.5" ry="6"  fill="#ffee00"/>
+      <ellipse cx="151.5" cy="20" rx="2.5" ry="4"  fill="rgba(255,255,255,0.85)"/>
+      <ellipse cx="151.5" cy="18" rx="8"   ry="8"  fill="#ffcc00" opacity="0.18"/>
+      <defs>
+        <linearGradient id="grad-b1"    x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4004a"/><stop offset="100%" stop-color="#8c0030"/></linearGradient>
+        <linearGradient id="grad-b1top" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff5585"/><stop offset="100%" stop-color="#e8295b" stop-opacity="0"/></linearGradient>
+        <linearGradient id="grad-b-bot" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6b0022"/><stop offset="100%" stop-color="#3a0012"/></linearGradient>
+        <linearGradient id="grad-m1"    x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b8003e"/><stop offset="100%" stop-color="#750028"/></linearGradient>
+        <linearGradient id="grad-m1top" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff3370"/><stop offset="100%" stop-color="#cc0040" stop-opacity="0"/></linearGradient>
+        <linearGradient id="grad-m-bot" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#55001a"/><stop offset="100%" stop-color="#2a000d"/></linearGradient>
+        <linearGradient id="grad-t1"    x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#990033"/><stop offset="100%" stop-color="#5e0020"/></linearGradient>
+        <linearGradient id="grad-t1top" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff2255"/><stop offset="100%" stop-color="#aa0033" stop-opacity="0"/></linearGradient>
+        <linearGradient id="grad-t-bot" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3d0015"/><stop offset="100%" stop-color="#1e000a"/></linearGradient>
+        <linearGradient id="cand1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ffe066"/><stop offset="100%" stop-color="#ffc000"/></linearGradient>
+        <linearGradient id="cand2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ff88bb"/><stop offset="100%" stop-color="#e8295b"/></linearGradient>
+        <linearGradient id="cand3" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#cc88ff"/><stop offset="100%" stop-color="#8822cc"/></linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="tap-ring" id="tap-ring-wrap">
+    <div class="tap-label">✦ tap to open your gift ✦</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     SCREEN 2  —  ROSE GATE
+════════════════════════════════════ -->
+<div id="s-rose" class="screen">
+  <div class="rose-msg">
+    Close your eyes for a moment, Yogitha…<br>
+    breathe in. This is for you. 🌹
+  </div>
+
+  <div class="rose-wrap" id="rose-btn">
+    <svg width="200" height="280" viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100 270 Q95 220 100 180 Q105 140 100 100" stroke="#1a5c1a" stroke-width="5" stroke-linecap="round"/>
+      <path d="M100 190 Q70 175 62 158 Q80 158 100 178" fill="#1e7a1e" opacity="0.85"/>
+      <path d="M100 210 Q132 196 140 178 Q122 178 100 200" fill="#1e7a1e" opacity="0.85"/>
+      <path d="M98 230 L88 222" stroke="#1a5c1a" stroke-width="2.5" stroke-linecap="round"/>
+      <ellipse cx="100" cy="85" rx="32" ry="48" fill="url(#rp1)" opacity="0.85" transform="rotate(-15 100 85)"/>
+      <ellipse cx="100" cy="85" rx="32" ry="48" fill="url(#rp2)" opacity="0.85" transform="rotate(15 100 85)"/>
+      <ellipse cx="100" cy="85" rx="28" ry="44" fill="url(#rp3)" opacity="0.85" transform="rotate(-45 100 85)"/>
+      <ellipse cx="100" cy="85" rx="28" ry="44" fill="url(#rp4)" opacity="0.85" transform="rotate(45 100 85)"/>
+      <ellipse cx="100" cy="80" rx="22" ry="34" fill="url(#rp5)" opacity="0.9" transform="rotate(-20 100 80)"/>
+      <ellipse cx="100" cy="80" rx="22" ry="34" fill="url(#rp6)" opacity="0.9" transform="rotate(20 100 80)"/>
+      <ellipse cx="100" cy="80" rx="20" ry="30" fill="url(#rp7)" opacity="0.9" transform="rotate(70 100 80)"/>
+      <ellipse cx="100" cy="76" rx="16" ry="24" fill="url(#rp8)" opacity="0.95" transform="rotate(10 100 76)"/>
+      <ellipse cx="100" cy="76" rx="16" ry="24" fill="url(#rp9)" opacity="0.95" transform="rotate(-10 100 76)"/>
+      <ellipse cx="100" cy="74" rx="10" ry="13" fill="url(#rcenter)"/>
+      <ellipse cx="100" cy="75" rx="35" ry="50" fill="rgba(255,50,100,0.08)"/>
+      <defs>
+        <radialGradient id="rp1" cx="50%" cy="80%" r="50%"><stop offset="0%" stop-color="#ff2d6b"/><stop offset="100%" stop-color="#8b0030"/></radialGradient>
+        <radialGradient id="rp2" cx="50%" cy="80%" r="50%"><stop offset="0%" stop-color="#e8295b"/><stop offset="100%" stop-color="#6b0020"/></radialGradient>
+        <radialGradient id="rp3" cx="40%" cy="60%" r="60%"><stop offset="0%" stop-color="#ff4477"/><stop offset="100%" stop-color="#7a0025"/></radialGradient>
+        <radialGradient id="rp4" cx="60%" cy="60%" r="60%"><stop offset="0%" stop-color="#ff3366"/><stop offset="100%" stop-color="#770022"/></radialGradient>
+        <radialGradient id="rp5" cx="50%" cy="70%" r="50%"><stop offset="0%" stop-color="#ff5588"/><stop offset="100%" stop-color="#990033"/></radialGradient>
+        <radialGradient id="rp6" cx="50%" cy="70%" r="50%"><stop offset="0%" stop-color="#ff4477"/><stop offset="100%" stop-color="#880030"/></radialGradient>
+        <radialGradient id="rp7" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#ff6699"/><stop offset="100%" stop-color="#aa0035"/></radialGradient>
+        <radialGradient id="rp8" cx="50%" cy="60%" r="50%"><stop offset="0%" stop-color="#ff88aa"/><stop offset="100%" stop-color="#cc0044"/></radialGradient>
+        <radialGradient id="rp9" cx="50%" cy="60%" r="50%"><stop offset="0%" stop-color="#ff77aa"/><stop offset="100%" stop-color="#bb0040"/></radialGradient>
+        <radialGradient id="rcenter" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#ffaacc"/><stop offset="70%" stop-color="#ee3366"/><stop offset="100%" stop-color="#880022"/></radialGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <button class="open-btn" id="open-letter-btn">Open your letter ✦</button>
+</div>
+
+<!-- ══════════════════════════════════
+     SCREEN 3  —  MESSAGE
+════════════════════════════════════ -->
+<div id="s-msg" class="screen">
+  <div class="msg-top">
+    <div class="letter-from">— a letter from his heart —</div>
+    <div class="letter-title">For Yogitha, always.</div>
+  </div>
+
+  <div class="letter-paper">
+    <div id="word-display"></div>
+  </div>
+
+  <div class="progress-track"><div id="prog-bar"></div></div>
+  <div class="scroll-hint">scroll gently ↓</div>
+</div>
+
+<script>
+// ─── MESSAGE ─────────────────────────────────────────────────────────────────
+const MESSAGE_PARAGRAPHS = [
+`'உயிரே யோகிதா,
+
+" இனிய பிறந்தநாள் நல்வாழ்த்துக்கள் இளவரசியே "
+
+உன்னை என் உயிர் என்று கூட சொல்ல முடியாது ஏனெனில் உயிர் கூட ஒரு நாள் என்னை விட்டு பிரியும் அனால் உன் நினைவுகள் என் மனதை விட்டு என்றும் நீங்காது. உன்னை முதல் முதலில் சந்தித்த போது என் மனதில் இணை புரியாத ஒரு மகிழிச்சி, அதன் பிறகு நாம் பழகினோம் உன்னோடு இருக்கும் பொழுது என் மனம் சிறிது அளவு கூட எதை பற்றியும் யோசிக்காமல் எந்த வித கவலை, மன அழுத்தம், பதற்றம் இது எதுவும் இல்லாமல் மகிழ்ச்சியாய் இருந்தேன். உன்னோடு இருந்த நாட்கள் மிகவும் அழகானது.`,
+
+`உன்னை போல் ஒரு தெய்வத்தை என் வாழ்வில் கண்டதில்லை, அன்றும் இன்றும் என்றும் உன்னை தெய்வத்திற்கு இணையாக வைத்திருக்கிறேன். உன்னை போல் ஒரு பெண்ணை பார்த்தது இல்லை. உன் அழகு, உன் பேச்சு, உன் நடைமுறை எல்லாம் எனக்கு மிகவும் பிடிக்கும். என் வாழ்க்கையில் மிகப் பெரிய போதை நீ மட்டுமே, உன் கண்கள் மட்டுமே.`,
+
+`நாம் ஒன்றாக இருந்த காலம் மிகவும் அழகாக மற்றும் மகிழ்ச்சியாக இருந்தது. நாம் பேசி பழகிய நொடியில் இருந்து ஒரு நொடி கூட என் மனம் உன்னை பற்றி நினைக்காமல் இருந்தது இல்லை. (21-07-2021) அன்று முதல் தற்போது வரை மட்டுமல்ல என் உயிர் இருக்கும் வரை ஒவ்வொரு நொடியும் உன்னை நினைத்து கொண்டே இருப்பேன்.`,
+
+`என்னுடைய உடைமை, பொறாமை, பாதுகாப்பு (Possessiveness, overcare, protection) அனைத்தும் இப்பொது உனக்கு அருவருப்பாகவும், சித்திரவதை போல் இருக்கிறது. இதற்கு முன் சில நபர்கள் இருந்தார்கள் அனால் அவர்களை விட அதிகமாக விரும்பினேன். உன்னுடன் பழகியது, பேசியது போல் வேறு யாரிடமும் இருந்தது இல்லை.`,
+
+`உலகில் ஒவ்வொருவருக்கு ஒவ்வொரு பிடித்த விசயம் அல்லது சந்தோஷம் இருக்கும் அனால் எனக்கு நீயே உலகம், நீயே சந்தோஷம், அனைத்தும் நீயே!!!! உன்னுடன் பேச ஒரு காலத்தில் காத்திருந்தேன் அனால் அப்போது நீ என்னை புரிந்து கொள்ளவில்லை.
+
+"யோகிதா" என்ற பெயர் சொன்னாலே எனக்கு மிகவும் பிடிக்கும். என் வாழ்க்கையில் இன்பம், துன்பம், சிரிப்பு, புன்னகை அனைத்தும் நீயே... நீ ஒரு பரிசுத்தமானவள்.`,
+
+`நாம் ஒன்றாக இருந்த நாட்கள் சொர்கம் மற்றும் உன்னுடன் இருக்கும் பொது கருவறையில் இருந்தது போல பாதுகாப்பாகவும், தைரியமாகவும் இருந்தது. உன் மூச்சு காற்றை சுவாசித்து உயிர் வாழ்ந்தேன். முன் சொன்னது போல் நான் பேசினால் பேசிக்கொண்டே இருப்பேன் உன்னை பற்றி...`,
+
+`I love the sound of your voice when you are explaining something you care about. I love the way you laugh when something is genuinely funny and you forget to be self-conscious about it. I love that your heart breaks for things that deserve to be broken over, and that you let it, because you would rather feel deeply than feel nothing. I love that you are honest, even when it costs you something. I love your imperfections not in spite of you, but as part of you — they are threads in the same cloth as everything I admire.`,
+
+`This birthday, I want to give you something no amount of money can measure. I want to give you certainty. The kind that sits in your chest quietly, not anxious, not wondering — just settled and warm. The certainty that you are loved. Not for what you do. Not for how you look. Not for your best days. You are loved for who you are when no one is watching. You are loved in the version of you that needs rest, needs reassurance, needs to be held. You are loved on the hard days as fiercely as on the beautiful ones.`,
+
+`I want every year ahead to feel like something you are building, not just surviving. I want you to wake up in your future and feel — really feel — that someone walked beside you through the making of it. That you were not alone in the becoming. That your joy was celebrated and your grief was shared and your dreams were taken seriously by at least one person in this world.`,
+
+`That person is me. I am here. I am yours.`,
+
+`மீண்டும், கடைசியாகவும் — " இனிய பிறந்தநாள் வாழ்த்துக்கள் இளவரசியே!!!!!!! "
+
+நன்றாக படித்து உன் வாழ்க்கையில் உனக்கு பிடித்தவாறு மற்றும் பிடித்தவர்களுடன் எப்போதும் சந்தோசமாகவும் புன்னகையோடும் உனக்கு பிடித்ததை செய்து கொண்டு எப்போது இருக்க மற்றும் மிக கவனமாக யாரிடமும் ஏமாறாமல் மற்றும் நல்ல அழகான உடையை அனிந்து உடல் தோற்றத்தை வெளிப்படுத்தாமல் இருக்கும் உடையை அனிந்து சந்தோசமாகவும் விழிப்புணர்வோடும் இருக்க வேண்டும் என்று விரும்புகிறேன். இந்த பிறந்தநாள் உனக்கு பிடித்தவாறு அமைய வேண்டுகிறேன் நீ செய்யும் மற்றும் செய்ய விரும்பும் அனைத்தும் நன்றாக அமைய வேண்டுகிறேன்.
+
+விடைபெறுகிறேன் உயிரே, என்றும் உன் நினைவுகளுடன்...
+
+— ராஜேஷ் ❤`
+];
+
+const LOVE_WORDS = new Set([
+  "love","loved","loving","heart","beautiful","yours","mine","always","forever",
+  "gentle","soft","soul","rare","grace","tender","safe","hold","chosen","worthy",
+  "precious","sacred","warm","warmth","quietly","honestly","free","smile","joy",
+  "brave","strength","deep","feel","feelings","glow","light","true","truth","real",
+  "yours","mine","us","ours","together","honest","laugh","care","beauty","adore"
+]);
+const GOLD_WORDS = new Set([
+  "yogitha","celebrate","birthday","remarkable","magnificent","extraordinary",
+  "irreplaceable","always","privilege","fiercely","certainty","celebrate","gift"
+]);
+
+// ─── CURSOR ──────────────────────────────────────────────────────────────────
+const cursorEl = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cursorEl.style.left = e.clientX + 'px';
+  cursorEl.style.top  = e.clientY + 'px';
+});
+
+// ─── STAR CANVAS ─────────────────────────────────────────────────────────────
+const sc = document.getElementById('star-canvas');
+const sx = sc.getContext('2d');
+let stars = [];
+function initStars() {
+  sc.width  = window.innerWidth;
+  sc.height = window.innerHeight;
+  stars = Array.from({length:160}, () => ({
+    x: Math.random() * sc.width,
+    y: Math.random() * sc.height,
+    r: Math.random() * 1.8 + 0.3,
+    a: Math.random(),
+    da: (Math.random() - 0.5) * 0.012,
+    hue: Math.random() > 0.6 ? 340 + Math.random()*30 : 45 + Math.random()*20
+  }));
+}
+initStars();
+window.addEventListener('resize', initStars);
+function drawStars() {
+  sx.clearRect(0, 0, sc.width, sc.height);
+  stars.forEach(s => {
+    s.a = Math.max(0.05, Math.min(1, s.a + s.da));
+    if (s.a <= 0.05 || s.a >= 1) s.da *= -1;
+    sx.beginPath();
+    sx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+    sx.fillStyle = `hsla(${s.hue},100%,85%,${s.a})`;
+    sx.fill();
+  });
+  requestAnimationFrame(drawStars);
+}
+drawStars();
+
+// ─── MUSIC ───────────────────────────────────────────────────────────────────
+const audio       = document.getElementById('bg-music');
+const musicUI     = document.getElementById('music-indicator');
+const musicLabel  = document.getElementById('music-label');
+let musicStarted  = false;
+
+function startMusic() {
+  if (musicStarted) return;
+  musicStarted = true;
+  audio.volume = 0;
+  audio.play().then(() => {
+    // Fade in volume over 2 seconds
+    let vol = 0;
+    const fadeIn = setInterval(() => {
+      vol = Math.min(1, vol + 0.04);
+      audio.volume = vol;
+      if (vol >= 1) clearInterval(fadeIn);
+    }, 80);
+    musicUI.classList.add('visible');
+  }).catch(() => {
+    // Autoplay blocked — will retry on next user interaction
+    musicStarted = false;
+  });
+}
+
+// Toggle pause / resume when clicking the indicator
+musicUI.addEventListener('click', () => {
+  if (audio.paused) {
+    audio.play();
+    musicUI.classList.remove('paused');
+    musicLabel.textContent = '♪ playing';
+  } else {
+    audio.pause();
+    musicUI.classList.add('paused');
+    musicLabel.textContent = '♪ paused';
+  }
+});
+
+// ─── CONFETTI ────────────────────────────────────────────────────────────────
+const CONF_COLORS = ['#e8295b','#ffd700','#ff88bb','#bb44ff','#44ddff','#88ff88','#ff6622'];
+
+// ─── CURSOR SPARK ON CLICK ───────────────────────────────────────────────────
+document.addEventListener('click', e => {
+  if (e.target.closest('#cake-btn') || e.target.closest('#rose-btn') ||
+      e.target.closest('#open-letter-btn') || e.target.closest('#music-indicator')) return;
+  const EMOJIS_CLICK = ['❤️','🌹','✨','💗','💕'];
+  const em = document.createElement('div');
+  em.style.cssText = `
+    position:fixed; left:${e.clientX-10}px; top:${e.clientY-10}px;
+    font-size:1.3rem; pointer-events:none; z-index:99999;
+    animation: sparkPop 0.8s ease forwards;
+    --tx:${(Math.random()-0.5)*60}px;
+    --ty:${-(20+Math.random()*40)}px;
+  `;
+  em.textContent = EMOJIS_CLICK[Math.floor(Math.random()*EMOJIS_CLICK.length)];
+  document.body.appendChild(em);
+  setTimeout(() => em.remove(), 900);
+});
+
+// ─── SCREEN TRANSITION ───────────────────────────────────────────────────────
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => {
+    s.style.opacity = '0';
+    s.style.transform = 'scale(0.96)';
+    s.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  });
+  setTimeout(() => {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    const next = document.getElementById(id);
+    next.classList.add('active');
+    next.style.opacity = '0';
+    next.style.transform = 'scale(0.96)';
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      next.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      next.style.opacity = '1';
+      next.style.transform = 'scale(1)';
+    }));
+  }, 400);
+}
+
+// ─── BURST SPARKS ────────────────────────────────────────────────────────────
+function burstSparks(cx, cy) {
+  const BURST = ['❤️','🌹','✨','💗','💕','🌸','💖'];
+  for (let i = 0; i < 10; i++) {
+    const s = document.createElement('div');
+    const angle = Math.random() * Math.PI * 2;
+    const dist  = 40 + Math.random() * 80;
+    s.style.cssText = `
+      position:fixed; left:${cx-12}px; top:${cy-12}px;
+      font-size:${1.2+Math.random()*0.8}rem;
+      pointer-events:none; z-index:99999;
+      animation: sparkPop 0.9s ease forwards;
+      --tx:${Math.cos(angle)*dist}px;
+      --ty:${Math.sin(angle)*dist}px;
+    `;
+    s.textContent = BURST[Math.floor(Math.random() * BURST.length)];
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 1000);
+  }
+}
+
+// ─── CAKE CLICK — starts music ────────────────────────────────────────────────
+document.getElementById('cake-btn').addEventListener('click', (e) => {
+  startMusic();
+  burstSparks(e.clientX, e.clientY);
+  setTimeout(() => showScreen('s-rose'), 400);
+});
+document.getElementById('tap-ring-wrap').addEventListener('click', () => {
+  startMusic();
+  burstSparks(window.innerWidth/2, window.innerHeight/2);
+  setTimeout(() => showScreen('s-rose'), 400);
+});
+
+// ─── ROSE / OPEN LETTER ──────────────────────────────────────────────────────
+document.getElementById('rose-btn').addEventListener('click', startMessage);
+document.getElementById('open-letter-btn').addEventListener('click', startMessage);
+
+let messageStarted = false;
+function startMessage() {
+  if (messageStarted) return;
+  messageStarted = true;
+  burstSparks(window.innerWidth/2, window.innerHeight/2);
+  setTimeout(() => {
+    showScreen('s-msg');
+    setTimeout(buildAndAnimateMessage, 900);
+  }, 500);
+}
+
+// ─── BUILD MESSAGE ────────────────────────────────────────────────────────────
+function buildAndAnimateMessage() {
+  const display = document.getElementById('word-display');
+  const bar     = document.getElementById('prog-bar');
+  display.innerHTML = '';
+  const allSpans = [];
+
+  MESSAGE_PARAGRAPHS.forEach((para, pi) => {
+    if (pi > 0) {
+      display.appendChild(document.createElement('br'));
+      display.appendChild(document.createElement('br'));
+    }
+    para.trim().split(/\s+/).forEach(w => {
+      const span = document.createElement('span');
+      span.className = 'word';
+      const clean = w.replace(/[^a-zA-Z]/g,'').toLowerCase();
+      const cleanFull = w.replace(/[,\.!?'"«»]/g,'');
+      if (LOVE_WORDS.has(clean)) span.classList.add('w-love');
+      if (GOLD_WORDS.has(clean)) span.classList.add('w-gold');
+      if (clean === 'yogitha')   span.classList.add('w-name');
+      if (cleanFull === 'யோகிதா') { span.classList.add('w-gold'); span.classList.add('w-name'); }
+      span.textContent = w;
+      display.appendChild(span);
+      display.appendChild(document.createTextNode(' '));
+      allSpans.push(span);
+    });
+  });
+
+  const total = allSpans.length;
+  const DELAY = 180;
+  allSpans.forEach((span, i) => {
+    setTimeout(() => {
+      span.classList.add('shown');
+      bar.style.width = ((i+1)/total*100)+'%';
+      if (i % 8 === 0) span.scrollIntoView({ behavior:'smooth', block:'nearest' });
+    }, i * DELAY);
+  });
+}
+</script>
+</body>
+</html>
